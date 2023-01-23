@@ -50,7 +50,7 @@ var peer = new Peer({
   },
 
   debug: 3
-});
+});//ทำการใช้งาน port ที่กำหนด
 
 let myVideoStream;
 navigator.mediaDevices
@@ -74,7 +74,7 @@ navigator.mediaDevices
     socket.on("user-connected", (userId) => {
       connectToNewUser(userId, stream);
     });
-  });
+  });//เรียกใช้เสียงเเละวีดีโอ
 
 const connectToNewUser = (userId, stream) => {
   console.log('I call someone' + userId);
@@ -83,7 +83,7 @@ const connectToNewUser = (userId, stream) => {
   call.on("stream", (userVideoStream) => {
     addVideoStream(video, userVideoStream);
   });
-};
+};//เป็นหารเรียกใช้ผู้ใช้งาน
 
 peer.on("open", (id) => {
   console.log('my id is' + id);
@@ -97,6 +97,7 @@ const addVideoStream = (video, stream) => {
     videoGrid.append(video);
   });
 };
+//เรียกใช้ addvidiostream
 
 let text = document.querySelector("#chat_message");
 let send = document.getElementById("send");

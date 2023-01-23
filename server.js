@@ -11,6 +11,7 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 const { v4: uuidv4 } = require("uuid");
+//ส่วนในการเชือมต่อของเซิฟ
 
 /**
  * This line imports the ExpressPeerServer module from the peer library, 
@@ -42,6 +43,7 @@ const io = require("socket.io")(server, {
 
 app.use("/peerjs", ExpressPeerServer(server, opinions));
 app.use(express.static("public"));
+//เรียกใช้ไฟในโฟลเดอร์
 
 
 /**
@@ -86,6 +88,7 @@ io.on("connection", (socket) => {
         });
     });
 });
+//ส่วนตรงนี้ทำงานเรื่องการเชื่อมต่อเข้าห้องเเชท
 
 /**This line starts the server and 
  * listens on the port specified in the 
